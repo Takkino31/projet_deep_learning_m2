@@ -1,0 +1,8 @@
+# Exclure les dossiers virtuels et autres répertoires non nécessaires
+venv/
+static/upload/
+static/images/
+detection/__pycache__/
+
+# Exclure le modèle
+modele/
