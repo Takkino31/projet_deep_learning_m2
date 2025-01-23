@@ -3,20 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload d'image</title>
+    <title>Détection de Falsifications d'Images</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-center">Téléverser une Image pour l'Analyse</h2>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="file" class="form-label">Sélectionner une image</label>
-                <input type="file" class="form-control" id="file" name="file" required>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Détection de Falsifications</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#groupe">Membres du Groupe</a>
+                    </li>
+                </ul>
             </div>
-            <button type="submit" class="btn btn-primary">Analyser</button>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Uploader une Image pour Analyse</h2>
+        <form action="{{ url_for('upload_image') }}" method="POST" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <input class="form-control" type="file" name="file" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyser l'Image</button>
         </form>
     </div>
+
+    <div class="container mt-5" id="groupe">
+        <h2 class="text-center">Membres du Groupe</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">Professeur: Dr I.GUEYE</li>
+                    <li class="list-group-item">Yaya ELimane VAR (GLSI)</li>
+                    <li class="list-group-item">Deguene FALL (GLSI)</li>
+                    <li class="list-group-item">Mouhamadou MANE (SRT)</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">Classe : M2-GLSI / SRT</li>
+                    <li class="list-group-item">Année : 2024-2025</li>
+                    <li class="list-group-item">Ecole: ESP, Ecole Supérieure Polytechnique de Dakar</li>
+                    <li class="list-group-item">Sujet 3 : Détection de falsifications</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
